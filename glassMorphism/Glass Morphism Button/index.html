@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Morphism Button </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 1.07em;
+      }
+      body {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100dvh;
+        background-color: rgb(56, 1, 77);
+      }
+      .container {
+        position: relative;
+        min-width: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .container .btn {
+        position: relative;
+        width: 150px;
+        height: 50px;
+        margin: 20px;
+      }
+      .container .btn a {
+        position: absolute;
+        text-decoration: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(59, 7, 67, 0.05);
+        box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.05),
+          -2px -2px 20px rgba(255, 255, 255, 0.05),
+          inset -1px -1px 4px rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 3px;
+        overflow: hidden;
+        transition: 0.2s;
+        z-index: 1;
+        backdrop-filter: blur(15px);
+      }
+      .container .btn:hover a {
+        letter-spacing: 4px;
+      }
+      .container .btn a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(
+          to left,
+          rgba(255, 0, 195, 0.5),
+          rgba(94, 87, 169, 0.1)
+        );
+        transform: skewX(45deg) translateX(-19px);
+        transition: 0.5s;
+      }
+      .container .btn:hover a::before {
+        transform: skewX(45deg) translateX(100px);
+      }
+      .container .btn::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -5px;
+        height: 16px;
+        width: 40px;
+        background-color: rgba(1, 166, 255);
+        border-radius: 12px;
+        transition: 0.2s;
+      }
+      .container .btn:hover::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        height: 16px;
+        width: 60%;
+        background-color: rgb(1, 166, 255);
+        border-radius: 12px;
+        transition: 0.2s;
+        box-shadow: 0px 4px 50px rgba(3, 167, 255, 0.5),
+          0px 4px 50px rgba(0, 132, 255, 0.5),
+          0px 4px 50px rgba(0, 149, 255, 0.5);
+      }
+      .container .btn::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -5px;
+        height: 16px;
+        width: 40px;
+        background-color: rgba(1, 166, 255);
+        border-radius: 12px;
+        transition: 0.2s;
+      }
+      .container .btn:hover:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        height: 16px;
+        width: 60%;
+        background-color: rgba(1, 166, 255);
+        border-radius: 15px;
+        transition: 0.2s;
+        box-shadow: 0px 4px 50px rgba(3, 167, 255, 0.5),
+          0px 4px 50px rgba(0, 132, 255, 0.5),
+          0px 4px 50px rgba(0, 149, 255, 0.5);
+      }
+      .container .btn:active {
+        transition: 0.5s;
+        scale: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn"><a href="">Button</a></div>
+      <div class="btn"><a href="">Button</a></div>
+      <div class="btn"><a href="">Button</a></div>
+    </div>
+  </body>
+</html>

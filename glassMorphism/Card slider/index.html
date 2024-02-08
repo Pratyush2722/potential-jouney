@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: /* linear-gradient(145deg,rgba(3, 5, 58) ,rgb(55, 3, 20)) */  black;
+            min-height: 100dvh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            overflow: hidden;
+            padding: 25px;
+        }
+        .container .card{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12em;
+            width: 300px;
+            height: 400px;
+            background: rgba(218, 218, 218, 0.1);
+            box-shadow: 0 1px 15px rgba(218, 218, 218, 0.05);
+            border: 1px solid rgba(218, 218, 218, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        .container .btn{
+            position: absolute;
+            right:calc(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 15px;
+            background: rgba(21, 7, 86, 0.508);
+            border: none;
+            font-size: 1.8em;
+            color: aliceblue;
+            border: 1px solid rgb(49, 3, 255);
+            cursor: pointer;
+            z-index: 1;
+        }
+        .container .btn:hover{
+            box-shadow: 0 1px 24px rebeccapurple;
+        }
+        .container  .back{
+            top:50%;
+            left:41%;
+        }
+        .container  .forward{
+            top:50%;
+            right:36%;
+        }
+        /* Card Design */
+        .container  .gradient::after{
+            content: "";
+            position: absolute;
+            top: 30%;
+            left: 46%;
+            width: 250px;
+            height: 250px;
+            background: conic-gradient(rgba(0, 17, 255,0.7) 32%, rgba(0, 242, 255,0.7) 0 70%, rgba(255, 0, 234,0.7) 0);
+            filter: blur(60px);
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back btn" onclick="plusSlides(-1)" > < </button>
+        <button class="forward btn" onclick="plusSlides(1)"> ></button>
+        <div class="gradient"></div>
+        <div class="card card-slider 1">
+            
+            1</div>
+        <div class="card card-slider 2">2</div>
+        <div class="card card-slider 3">3</div>
+        <div class="card card-slider 1">4</div>
+        <div class="card card-slider 2">5</div>
+        <div class="card card-slider 3">6</div>
+        <div class="card card-slider 1">7</div>
+        <div class="card card-slider 2">8</div>
+        <div class="card card-slider 3">9</div>
+        <div class="card card-slider 1">10</div>
+        <div class="card card-slider 2">11</div>
+        <div class="card card-slider 3">12</div>
+        <div class="card card-slider 1">13</div>
+        <div class="card card-slider 2">14</div>
+        <div class="card card-slider 3">15</div>
+    </div>
+    <script >
+        let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("card");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "flex";   
+  dots[slideIndex-1].className += " active";
+}
+    </script>
+</body>
+</html>
